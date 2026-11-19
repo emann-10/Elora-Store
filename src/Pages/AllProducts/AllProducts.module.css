@@ -43,7 +43,7 @@
     justify-content: start;
     align-items: center;
     gap: 16px 500px;
-    padding-bottom: 22px;
+    padding-bottom: 30px;
     border-bottom: 1px solid #e3dfd9;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .productCard {
-    width: 240px;
+    width: 267px;
     height: 100%;
     padding: 13px;
     background-color: #fff;
@@ -261,13 +261,14 @@
         width: 100%;
         height: 100%;
         padding: 10px;
+        margin: 0 10px 10px 0px;
         display: flex;
         flex-direction: column;
     }
 
     .productImage {
         width: 100%;
-        height: 220px;
+        height: 240px;
         object-fit: contain;
         object-position: center;
         display: block;

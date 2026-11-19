@@ -8,6 +8,7 @@ import Contacts from './Pages/Contacts/Contacts'
 import AppProvider from "./Context/AppContext";
 import Users from './Pages/Users/Users'
 import Login from './Pages/Login/Login'
+import SignUp from "./Pages/SignUp/SignUp";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import NotFound from './Pages/NotFound/NotFound'
 function App() {
@@ -39,6 +40,10 @@ function App() {
         {
           path: "login",
           element: <Login></Login>
+        },
+        {
+          path: "register",
+          element: <SignUp></SignUp>
         },
         {
           path: `*`,

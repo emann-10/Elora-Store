@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cssstyle from "./Login.module.css";
 import loginImage from "../../assets/login-perfume.jpg";
 
 export default function Login() {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,24 +20,35 @@ export default function Login() {
     }, [message]);
 
     const handleSubmit = (e) => {
-    e.preventDefault();
+        e.preventDefault();
+        const users = JSON.parse(localStorage.getItem("eloraUsers")) || [];
+        const normalizedEmail = email.trim().toLowerCase();
+        const user = users.find(
+            (user) =>
+                user.email === normalizedEmail &&
+                user.password === password
+        );
+        if (user) {
+            setMessageType("success");
+            setMessage(`Login Successful! Welcome, ${user.fullName}.`);
 
-    if (email === "test@elora.com" && password === "123456") {
-        setMessageType("success");
-        setMessage("Login Successful! Welcome to ÉLORA.");
-        setEmail("");
-        setPassword("");
-    } else {
-        setMessageType("error");
-        setMessage("Login Failed! Please check your email and password.");
-    }
-};
+            setEmail("");
+            setPassword("");
+
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
+
+        } else {
+            setMessageType("error");
+            setMessage("Login Failed! Please check your email and password.");
+        }
+    };
     return (
         <section className={cssstyle.loginPage}>
             <div className={cssstyle.loginBox}>
                 <div className={cssstyle.loginImage}>
                     <img src={loginImage} alt="ÉLORA luxury perfume" />
-
                     <div className={cssstyle.imageContent}>
                         <p>WELCOME TO ÉLORA</p>
                         <h2>Discover the art of fragrance.</h2>
@@ -56,11 +68,9 @@ export default function Login() {
                         </span>
 
                         <h1>Welcome Back</h1>
-
                         <p className={cssstyle.subtitle}>
                             Sign in to continue your fragrance journey.
                         </p>
-
                         <div className={cssstyle.decorativeLine}>
                             <span></span>
                             <i className="bi bi-flower1"></i>
@@ -70,10 +80,8 @@ export default function Login() {
                         <form onSubmit={handleSubmit}>
                             <div className={cssstyle.inputGroup}>
                                 <label htmlFor="email">Email Address</label>
-
                                 <div className={cssstyle.inputWrapper}>
                                     <i className="bi bi-envelope"></i>
-
                                     <input
                                         id="email"
                                         type="email"
@@ -90,7 +98,6 @@ export default function Login() {
 
                                 <div className={cssstyle.inputWrapper}>
                                     <i className="bi bi-lock"></i>
-
                                     <input
                                         id="password"
                                         type={showPassword ? "text" : "password"}
@@ -135,7 +142,7 @@ export default function Login() {
                         </form>
                         {message && (
                             <div className={`${cssstyle.formMessage} ${cssstyle[messageType]}`}>
-                                <i className="bi bi-exclamation-circle-fill"></i>
+                                <i className={`bi ${messageType === "success" ? "bi-check-circle-fill" : "bi-exclamation-circle-fill"}`}></i>
                                 <span>{message}</span>
                             </div>
                         )}
