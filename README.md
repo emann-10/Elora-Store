@@ -46,7 +46,7 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/emann-10/Graduation-Project-.git
+git clone https://github.com/emann-10/Elora-Store.git
 cd repo-name
 ```
 
