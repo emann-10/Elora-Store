@@ -105,7 +105,7 @@ The build artifacts will be stored in the `dist/` directory.
 ```
 
 ## Live Demo
-[View the live site](https://graduation-project-seven-alpha.vercel.app/)
+[View the live site](https://elora-store-five.vercel.app/)
 
 ## License
 MIT
