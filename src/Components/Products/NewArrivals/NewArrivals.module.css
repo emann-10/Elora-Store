@@ -1,0 +1,195 @@
+.collections {
+    background-color: white;
+    padding: 70px 0px;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sectionHeader p {
+    color: #b58a50;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.sectionHeader h2 {
+    color: #19191d;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.sectionHeader span {
+    color: #77736d;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    font-weight: 450;
+    line-height: 1.7;
+}
+
+.collectionCard {
+    position: relative;
+    display: block;
+    height: 380px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #4a4035;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.collectionCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.78) 0%,
+        rgba(0, 0, 0, 0.25) 45%,
+        rgba(0, 0, 0, 0.02) 100%
+    );
+    transition: background 0.3s ease;
+}
+
+.cardContent {
+    position: absolute;
+    left: 25px;
+    right: 20px;
+    bottom: 25px;
+    z-index: 2;
+}
+
+.cardContent p {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.cardContent h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cardContent span {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.collectionCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.collectionCard:hover img {
+    transform: scale(1.07);
+}
+
+@media (max-width: 991px) {
+    .collections {
+        padding: 55px 20px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 35px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 27px;
+    }
+
+    .sectionHeader span {
+        font-size: 14px;
+    }
+
+    .collectionCard {
+        height: 320px;
+    }
+}
+
+@media (max-width: 576px) {
+    .collections {
+        padding: 45px 15px;
+    }
+
+    .sectionHeader {
+        margin-bottom: 30px;
+    }
+
+    .sectionHeader p {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 23px;
+    }
+
+    .sectionHeader span {
+        font-size: 12px;
+    }
+
+    .collectionCard {
+        height: 280px;
+        border-radius: 12px;
+    }
+
+    .cardContent {
+        left: 20px;
+        right: 15px;
+        bottom: 22px;
+    }
+
+    .cardContent h3 {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 375px) {
+    .collections {
+        padding: 35px 12px;
+    }
+
+    .sectionHeader h2 {
+        font-size: 21px;
+    }
+
+    .sectionHeader span {
+        font-size: 11px;
+    }
+
+    .collectionCard {
+        height: 250px;
+    }
+
+    .cardContent {
+        left: 16px;
+        bottom: 18px;
+    }
+
+    .cardContent h3 {
+        font-size: 17px;
+    }
+
+    .cardContent span {
+        font-size: 9px;
+    }
+}
